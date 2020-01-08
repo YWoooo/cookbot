@@ -1,10 +1,15 @@
 const sendPage = require('./src/functions/sendPage')
 const sendAllPages = require('./src/functions/sendAllPages')
 const emptyQuery = require('./src/functions/emptyQuery')
+const sendErrorMsg = require('./src/functions/sendErrorMsg')
 
 module.exports = async function App(context) {
-    if(context.event.text === '-all'){
-        return sendAllPages
+    const text = context.event.text
+    try {
+        if (text === '-all') return sendAllPages
+        return text.trim().length === 0 ? emptyQuery : sendPage
+    } catch (e) {
+        console.log(e)
+        return sendErrorMsg
     }
-    return context.event.text.trim().length === 0 ? emptyQuery : sendPage
 };
