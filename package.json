@@ -14,7 +14,8 @@
     "axios": "^0.19.0",
     "bottender": "^1.2.0-alpha.2",
     "express": "^4.17.1",
-    "mongodb": "^3.4.1"
+    "mongodb": "^3.4.1",
+    "random-item": "^3.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
