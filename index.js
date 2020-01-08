@@ -1,4 +1,5 @@
 const cookbook = require('./src/cookbook')
+const normalMsg = require('./src/language/normalMsg')
 
 async function sendPage(context) {
     const page = await cookbook.getPage(context.event.text)
@@ -7,12 +8,12 @@ async function sendPage(context) {
 }
 
 async function sendUnknown(context) {
-    await context.sendText("Sorry, but I found nothing in the cookbook.");
+    await context.sendText(normalMsg.en.foundNothing);
 }
 
 module.exports = async function App(context) {
     if (context.event.text.trim().length === 0) {
-        return await context.sendText('Sorry, but you have to type something so I can find in the cookbook.')
+        return await context.sendText(normalMsg.en.emptyQuery)
     }
     //return context.event.text === 'custom' ? sendPage : sendUnknown;
     return sendPage
