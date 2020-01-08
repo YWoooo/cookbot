@@ -9,7 +9,7 @@ module.exports = {
         try {
             const res = await client.get(`/getPage`, {
                 params: {
-                    title: query
+                    query: query
                 }
             });
             return res.data;
