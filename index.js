@@ -9,10 +9,16 @@ const sendHelp = require('./src/functions/sendHelp')
 module.exports = async function App(context) {
     const text = context.event.text
     try {
-        if (text === orders.list) return sendAllPages
-        if (text === orders.orders) return sendOrders
-        if (text === orders.help) return sendHelp
-        return text.trim().length === 0 ? emptyQuery : sendPage
+        switch (text) {
+            case orders.list:
+                return sendAllPages
+            case orders.orders:
+                return sendOrders
+            case orders.help:
+                return sendHelp
+            default:
+                return text.trim().length === 0 ? emptyQuery : sendPage
+        }
     } catch (e) {
         console.log(e)
         return sendErrorMsg
