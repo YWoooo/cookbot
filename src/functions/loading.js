@@ -1,8 +1,13 @@
 const randomItem = require('random-item');
 const normalMsg = require('../language/normalMsg')
+const sendErrorMsg = require('./sendErrorMsg')
 
 function loading(context) {
-    context.sendText(randomItem(normalMsg.en.loading))
+    try {
+        context.sendText(randomItem(normalMsg.en.loading))
+    } catch (e) {
+        sendErrorMsg(context)
+    }
 }
 
 module.exports = loading
