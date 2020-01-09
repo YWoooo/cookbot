@@ -1,9 +1,14 @@
 const ordersMsg = require('../language/orders')
+const sendErrorMsg = require('./sendErrorMsg')
 
 function sendOrders(context) {
     const orderList = []
     Object.keys(orders).map(e => orderList.push(`· ${orders[e]}: ${ordersMsg.en[e]} \n`))
-    context.sendText(`\n${ordersMsg.en.sendOrders} \n${orderList.join('')}`);
+    try {
+        context.sendText(`\n${ordersMsg.en.sendOrders} \n${orderList.join('')}`);
+    } catch (e) {
+        sendErrorMsg(context)
+    }
 }
 
 const orders = {
