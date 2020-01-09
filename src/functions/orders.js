@@ -2,7 +2,7 @@ const ordersMsg = require('../language/orders')
 
 function sendOrders(context) {
     const orderList = []
-    Object.keys(orders).map(e => orderList.push(`${orders[e]} \n ${ordersMsg.en[e]} \n \n`))
+    Object.keys(orders).map((e, index) => orderList.push(`${index + 1}. ${orders[e]} \n    ${ordersMsg.en[e]} \n\n`))
     context.sendText(`\n${ordersMsg.en.sendOrders} \n \n${orderList.join('')}`);
 }
 
