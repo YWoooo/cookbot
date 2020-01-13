@@ -1,4 +1,5 @@
 require('dotenv').config({ path: './process.env' })
+const normalMsg = require('./src/language/normalMsg')
 
 module.exports = {
   session: {
@@ -22,7 +23,7 @@ module.exports = {
         greeting: [
           {
             locale: 'default',
-            text: "Hello, {{user_first_name}}, I'm your cookbot. Just give me any text and I'll find if there is a match in the cookbook!",
+            text: normalMsg.en.welcome
           }
         ],
       }

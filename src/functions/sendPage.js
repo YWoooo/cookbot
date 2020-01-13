@@ -10,15 +10,25 @@ async function sendPage(context) {
     try {
         loading(context)
         const page = await cookbook.getPage(context.event.text)
-        if (Object.keys(page).length === 0) {
+        const quantity = Object.keys(page).length
+
+        if (quantity === 0) {
             return foundNothing
         }
-        if (Object.keys(page).length > 1) {
+
+        if (quantity === 1) {
+            await context.sendText(formatPage(page[0]))
+            sendMoreDetail(context, page[0])
+        }
+
+        if (quantity > 1 && quantity < 4) {
             global.pages = page
             return sendChoose(context)
         }
-        await context.sendText(formatPage(page[0]))
-        sendMoreDetail(context, page[0])
+
+        if (quantity > 3) {
+            context.sendText(normalMsg.en.foundToMany)
+        }
     } catch (e) {
         return sendErrorMsg(e, context)
     }
