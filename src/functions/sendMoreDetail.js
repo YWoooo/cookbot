@@ -5,12 +5,12 @@ function sendMoreDetail(context, page) {
         {
             type: 'web_url',
             url: page.url,
-            title: 'Check out the book.',
+            title: normalMsg.en.toBook,
         },
         {
-            type: 'postback',
-            title: 'Call the author.',
-            payload: 'USER_DEFINED_PAYLOAD',
+            type: 'web_url',
+            url: page.author.messenger,
+            title: normalMsg.en.toAuthor,
         },
     ])
 }

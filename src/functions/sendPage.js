@@ -18,7 +18,7 @@ async function sendPage(context) {
             return sendChoose(context)
         }
         await context.sendText(formatPage(page[0]))
-        await sendMoreDetail(context, page[0])
+        sendMoreDetail(context, page[0])
     } catch (e) {
         return sendErrorMsg(e, context)
     }

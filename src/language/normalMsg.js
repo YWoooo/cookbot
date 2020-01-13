@@ -5,6 +5,8 @@ module.exports = {
         allPages: "SURE, THE LIST!",
         error: "Sorry, something went wrong, I'm trying to fix it...",
         choose: 'You mean...',
-        moreDetail: 'For more detail...'
+        moreDetail: 'For more detail...',
+        toBook: 'Check out the book.',
+        toAuthor: 'Call the author.'
     }
 };
