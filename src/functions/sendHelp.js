@@ -7,7 +7,7 @@ async function sendHelp(context) {
         await context.sendText(normalMsg.en.help[1])
         await context.sendText(normalMsg.en.help[2])
     } catch (e) {
-        sendErrorMsg(context)
+        sendErrorMsg(e, context)
     }
 }
 

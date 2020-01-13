@@ -12,8 +12,7 @@ function sendChoose(context) {
     try {
         context.sendText(normalMsg.en.choose, { quick_replies: quick_replies });
     } catch (e) {
-        console.log(e)
-        return sendErrorMsg(context)
+        return sendErrorMsg(e, context)
     }
 }
 

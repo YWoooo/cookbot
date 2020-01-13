@@ -10,7 +10,7 @@ async function sendAllPages(context) {
             context.sendText(`· ${e.title}`)
         });
     } catch (e) {
-        sendErrorMsg(context)
+        sendErrorMsg(e, context)
     }
 }
 

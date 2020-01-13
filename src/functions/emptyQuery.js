@@ -5,7 +5,7 @@ function emptyQuery(context) {
     try {
         context.sendText(normalMsg.en.emptyQuery)
     } catch (e) {
-        sendErrorMsg(context)
+        sendErrorMsg(e, context)
     }
 }
 

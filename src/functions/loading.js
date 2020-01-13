@@ -6,7 +6,7 @@ function loading(context) {
     try {
         context.sendText(randomItem(normalMsg.en.loading))
     } catch (e) {
-        sendErrorMsg(context)
+        sendErrorMsg(e, context)
     }
 }
 

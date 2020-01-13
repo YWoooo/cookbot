@@ -18,8 +18,7 @@ async function sendPage(context) {
         }
         context.sendText(formatPage(page[0]))
     } catch (e) {
-        console.log(e)
-        return sendErrorMsg(context)
+        return sendErrorMsg(e, context)
     }
 }
 
