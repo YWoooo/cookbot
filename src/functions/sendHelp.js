@@ -1,11 +1,11 @@
-const normalMsg = require('../language/normalMsg')
+const helpMsg = require('../language/helpMsg')
 const sendErrorMsg = require('./sendErrorMsg')
 
 async function sendHelp(context) {
     try {
-        await context.sendText(normalMsg.en.help[0])
-        await context.sendText(normalMsg.en.help[1])
-        await context.sendText(normalMsg.en.help[2])
+        await context.sendText(helpMsg.en.help[0])
+        await context.sendText(helpMsg.en.help[1])
+        await context.sendText(helpMsg.en.help[2])
     } catch (e) {
         sendErrorMsg(e, context)
     }
