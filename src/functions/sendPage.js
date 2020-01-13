@@ -1,6 +1,8 @@
 const cookbook = require('../cookbook')
 const normalMsg = require('../language/normalMsg')
 const loading = require('./loading')
+const sendChoose = require('./sendChoose')
+const formatPage = require('./formatPage')
 const sendErrorMsg = require('./sendErrorMsg')
 
 async function sendPage(context) {
@@ -10,9 +12,14 @@ async function sendPage(context) {
         if (Object.keys(page).length === 0) {
             return foundNothing
         }
-        await context.sendText(page[0].title);
+        if (Object.keys(page).length > 1) {
+            global.pages = page
+            return sendChoose(context)
+        }
+        context.sendText(formatPage(page[0]))
     } catch (e) {
-        sendErrorMsg(context)
+        console.log(e)
+        return sendErrorMsg(context)
     }
 }
 
