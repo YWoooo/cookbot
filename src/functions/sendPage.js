@@ -3,6 +3,7 @@ const normalMsg = require('../language/normalMsg')
 const loading = require('./loading')
 const sendChoose = require('./sendChoose')
 const formatPage = require('./formatPage')
+const sendMoreDetail = require('./sendMoreDetail')
 const sendErrorMsg = require('./sendErrorMsg')
 
 async function sendPage(context) {
@@ -16,7 +17,8 @@ async function sendPage(context) {
             global.pages = page
             return sendChoose(context)
         }
-        context.sendText(formatPage(page[0]))
+        await context.sendText(formatPage(page[0]))
+        await sendMoreDetail(context, page[0])
     } catch (e) {
         return sendErrorMsg(e, context)
     }
