@@ -2,12 +2,11 @@ const sendErrorMsg = require('./sendErrorMsg')
 
 async function sendAuthor(context) {
     try {
-        await context.sendButtonTemplate("Sure, his name is 張育維\nywchangsmail@gmail.com", [{
+        await context.sendButtonTemplate("Sure, his name is 育維\nAnd he nedd a job!", [{
             type: 'web_url',
-            url: 'https://www.facebook.com/messages/t/100001127377528',
-            title: 'Call 育維 now.',
+            url: 'https://www.messenger.com/t/100001127377528',
+            title: 'Send message to 育維.',
         }])
-        await context.sendText("He's really handsome, he has a cat, and he need a job. Could you give him a offer plz?")
         await context.sendAttachment({
             type: 'image',
             payload: {
