@@ -6,7 +6,7 @@ function sendChoose(context) {
         quick_replies.push({
             content_type: 'text',
             title: e.title,
-            payload: i,
+            payload: `afterChoose_${i}`,
         })
     });
     try {

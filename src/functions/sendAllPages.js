@@ -1,14 +1,49 @@
 const cookbook = require('../cookbook')
+const loading = require('./loading')
 const normalMsg = require('../language/normalMsg')
 const sendErrorMsg = require('./sendErrorMsg')
 
-async function sendAllPages(context) {
+async function sendAllPages(context, pageNumber, countFromPayload) {
+    let pageSize = 10
+    let count
+    let res = ''
+
     try {
-        await context.sendText(normalMsg.en.allPages)
-        const pages = await cookbook.getPage('')
+        // Send pages.
+        loading(context)
+        const pages = await cookbook.getAllPages(pageNumber, pageSize)
         pages.forEach(e => {
-            context.sendText(`· ${e.title}`)
-        });
+            res += `· ${e.title}\n`
+        })
+        await context.sendText(res)
+
+        // Only count the number of documents once.
+        if (pageNumber === 1) {
+            const res = await cookbook.getCount()
+            count = res.data
+        } else {
+            count = countFromPayload
+        }
+
+        // Send buttons.
+        const btns = [
+            {
+                type: 'postback',
+                title: `See another ${pageSize} pages`,
+                payload: `sendAllPages_${pageNumber + 1}_${count}`
+            },
+            {
+                type: 'web_url',
+                url: 'https://ywchangsmail.gitbook.io/cookbook/',
+                title: normalMsg.en.toBook,
+            },
+        ]
+
+        // If all pages are shown, the see another pages button is unnecessary.
+        if (pages.length < pageSize) {
+            btns.shift()
+        }
+        await context.sendButtonTemplate(`These are the ${(pageNumber - 1) * pageSize + pages.length}/${count} of the cookbook. You can... `, btns)
     } catch (e) {
         sendErrorMsg(e, context)
     }

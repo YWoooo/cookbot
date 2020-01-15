@@ -17,4 +17,27 @@ module.exports = {
             console.log(e)
         }
     },
+
+    async getAllPages(pageNumber, pageSize) {
+        try {
+            const res = await client.get(`/getAllPages`, {
+                params: {
+                    pageNumber: pageNumber,
+                    pageSize: pageSize
+                }
+            });
+            return res.data;
+        } catch (e) {
+            console.log(e)
+        }
+    },
+
+    async getCount() {
+        try {
+            const res = await client.get(`/getCount`);
+            return res.data;
+        } catch (e) {
+            console.log(e)
+        }
+    },
 };

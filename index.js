@@ -8,13 +8,17 @@ const sendHelp = require('./src/functions/sendHelp')
 
 module.exports = async function App(context) {
     const payload = context.event.payload
-    if (payload) {
-        return afterChoose(context, payload)
+    if (/afterChoose/.test(payload)) {
+        return afterChoose(context, payload.slice(-1))
     }
+    if (/sendAllPages/.test(payload)) {
+        return sendAllPages(context, payload.split('_')[1], payload.split('_')[2])
+    }
+
     const text = context.event.text
     switch (text) {
         case orders.list:
-            return sendAllPages
+            return sendAllPages(context, 1)
         case orders.orders:
             return sendOrders
         case orders.help:
