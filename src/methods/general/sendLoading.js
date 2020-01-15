@@ -1,6 +1,6 @@
 const randomItem = require('random-item');
 const loadingMsg = require('../../language/loadingMsg')
-const sendErrorMsg = require('../general/sendErrorMsg')
+const sendErrorMsg = require('./sendErrorMsg')
 
 function loading(context) {
     try {

@@ -1,5 +1,5 @@
 const orders = require('./orders')
-const ordersMsg = require('../../language/orders')
+const ordersMsg = require('../../language/ordersMsg')
 const sendErrorMsg = require('../general/sendErrorMsg')
 
 function sendOrders(context) {

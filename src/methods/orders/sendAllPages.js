@@ -1,5 +1,5 @@
-const cookbook = require('../../cookbook')
-const loading = require('../general/loading')
+const cookbook = require('../../db/cookbook')
+const loading = require('../general/sendLoading')
 const normalMsg = require('../../language/normalMsg')
 const sendErrorMsg = require('../general/sendErrorMsg')
 
