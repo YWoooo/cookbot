@@ -13,6 +13,7 @@ function sendOrders(context) {
 
 const orders = {
     list: '-list',
+    book: '-book',
     orders: '-orders',
     help: '-help'
 }
