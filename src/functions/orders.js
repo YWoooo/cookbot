@@ -15,7 +15,8 @@ const orders = {
     list: '-list',
     book: '-book',
     orders: '-orders',
-    help: '-help'
+    help: '-help',
+    author: '-author'
 }
 
 module.exports = { sendOrders, orders }

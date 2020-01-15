@@ -6,6 +6,7 @@ const sendAllPages = require('./src/functions/sendAllPages')
 const sendBook = require('./src/functions/sendBook')
 const sendOrders = require('./src/functions/orders').sendOrders
 const sendHelp = require('./src/functions/sendHelp')
+const sendAuthor = require('./src/functions/sendAuthor')
 
 module.exports = async function App(context) {
     const payload = context.event.payload
@@ -26,6 +27,8 @@ module.exports = async function App(context) {
             return sendOrders
         case orders.help:
             return sendHelp
+        case orders.author:
+            return sendAuthor
         default:
             return text.trim().length === 0 ? emptyQuery : sendPage
     }
