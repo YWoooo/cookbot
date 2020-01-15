@@ -1,4 +1,4 @@
-const normalMsg = require('../language/normalMsg')
+const normalMsg = require('../../language/normalMsg')
 
 function sendMoreDetail(context, page) {
     context.sendButtonTemplate(`${normalMsg.en.moreDetail}`, [

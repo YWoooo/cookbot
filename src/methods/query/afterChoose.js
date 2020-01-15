@@ -1,6 +1,6 @@
 const formatPage = require('./formatPage')
 const sendMoreDetail = require('./sendMoreDetail')
-const sendErrorMsg = require('./sendErrorMsg')
+const sendErrorMsg = require('../general/sendErrorMsg')
 
 async function afterChoose(context, i) {
     try {

@@ -1,10 +1,10 @@
-const cookbook = require('../cookbook')
-const normalMsg = require('../language/normalMsg')
-const loading = require('./loading')
+const cookbook = require('../../cookbook')
+const normalMsg = require('../../language/normalMsg')
+const loading = require('../general/loading')
 const sendChoose = require('./sendChoose')
 const formatPage = require('./formatPage')
 const sendMoreDetail = require('./sendMoreDetail')
-const sendErrorMsg = require('./sendErrorMsg')
+const sendErrorMsg = require('../general/sendErrorMsg')
 
 async function sendPage(context) {
     try {

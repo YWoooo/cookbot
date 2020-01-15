@@ -1,4 +1,4 @@
-const normalMsg = require('../language/normalMsg')
+const normalMsg = require('../../language/normalMsg')
 
 function sendChoose(context) {
     const quick_replies = []

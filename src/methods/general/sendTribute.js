@@ -1,4 +1,4 @@
-const sendErrorMsg = require('./sendErrorMsg')
+const sendErrorMsg = require('../general/sendErrorMsg')
 
 function sendTribute(context) {
     try {

@@ -1,5 +1,5 @@
-const helpMsg = require('../language/helpMsg')
-const sendErrorMsg = require('./sendErrorMsg')
+const helpMsg = require('../../language/helpMsg')
+const sendErrorMsg = require('../general/sendErrorMsg')
 
 async function sendHelp(context) {
     try {

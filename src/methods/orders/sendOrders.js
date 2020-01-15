@@ -1,5 +1,6 @@
-const ordersMsg = require('../language/orders')
-const sendErrorMsg = require('./sendErrorMsg')
+const orders = require('./orders')
+const ordersMsg = require('../../language/orders')
+const sendErrorMsg = require('../general/sendErrorMsg')
 
 function sendOrders(context) {
     try {
@@ -11,12 +12,4 @@ function sendOrders(context) {
     }
 }
 
-const orders = {
-    list: '-list',
-    book: '-book',
-    orders: '-orders',
-    help: '-help',
-    author: '-author'
-}
-
-module.exports = { sendOrders, orders }
+module.exports = sendOrders

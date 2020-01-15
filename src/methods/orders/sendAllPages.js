@@ -1,7 +1,7 @@
-const cookbook = require('../cookbook')
-const loading = require('./loading')
-const normalMsg = require('../language/normalMsg')
-const sendErrorMsg = require('./sendErrorMsg')
+const cookbook = require('../../cookbook')
+const loading = require('../general/loading')
+const normalMsg = require('../../language/normalMsg')
+const sendErrorMsg = require('../general/sendErrorMsg')
 
 async function sendAllPages(context, pageNumber, countFromPayload) {
     let pageSize = 10

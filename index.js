@@ -1,13 +1,12 @@
-const sendPage = require('./src/functions/sendPage')
-const emptyQuery = require('./src/functions/emptyQuery')
-const afterChoose = require('./src/functions/afterChoose')
-const orders = require('./src/functions/orders').orders
-const sendAllPages = require('./src/functions/sendAllPages')
-const sendBook = require('./src/functions/sendBook')
-const sendOrders = require('./src/functions/orders').sendOrders
-const sendHelp = require('./src/functions/sendHelp')
-const sendAuthor = require('./src/functions/sendAuthor')
-const sendTribute = require('./src/functions/sendTribute')
+const sendPage = require('./src/methods/query/sendPage')
+const afterChoose = require('./src/methods/query/afterChoose')
+const orders = require('./src/methods/orders/orders')
+const sendOrders = require('./src/methods/orders/sendOrders')
+const sendAllPages = require('./src/methods/orders/sendAllPages')
+const sendAuthor = require('./src/methods/orders/sendAuthor')
+const sendBook = require('./src/methods/orders/sendBook')
+const sendHelp = require('./src/methods/orders/sendHelp')
+const sendTribute = require('./src/methods/general/sendTribute')
 
 module.exports = async function App(context) {
     const payload = context.event.payload
@@ -36,6 +35,6 @@ module.exports = async function App(context) {
         case orders.author:
             return sendAuthor
         default:
-            return text.trim().length === 0 ? emptyQuery : sendPage
+            return sendPage
     }
 };
