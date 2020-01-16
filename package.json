@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:db": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "bottender dev",
+    "lint": "eslint .",
+    "start": "bottender start",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
