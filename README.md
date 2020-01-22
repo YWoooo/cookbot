@@ -13,13 +13,13 @@ I created a database and a API about my notes, then I created a chatbot to conne
 
 ## Orders
 There're some orders for users.
-- **-list:** <br>
+- **-list** <br>
       show titles of all pages. 
-- **-link:** <br>
+- **-link** <br>
       show cookbook's link.
-- **--orders:** <br> 
+- **-orders** <br> 
       show all orders.
-- **-help:** <br>
+- **-help** <br>
       show introduction.
-- **-author:** <br>
+- **-author** <br>
       show author info.
